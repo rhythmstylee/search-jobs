@@ -1,11 +1,30 @@
 <?php
-if (isset($_GET['query'])) {
-  $query = $_GET['query'];
+// file: search-jobs.php
 
-$results = carilowongankerja($query);
-  echo "Hasil pencarian untuk: " . $query;
-  // Tampilkan $results atau hasil pencarian lainnya
+// Fungsi untuk mencari lowongan kerja berdasarkan query
+function carilowongankerja($query) {
+    // Lakukan logika pencarian di sini
+    // Misalnya, kueri database atau panggil API pencarian
+
+    // Contoh sederhana:
+    $hasil_pencarian = "Hasil pencarian untuk: " . $query;
+
+    // Kembalikan hasil pencarian
+    return $hasil_pencarian;
+}
+
+// Periksa apakah form telah disubmit
+if (isset($_GET['q'])) {
+    // Ambil nilai pencarian dari formulir
+    $query = $_GET['q'];
+
+    // Panggil fungsi pencarian
+    $results = carilowongankerja($query);
+
+    // Tampilkan hasil pencarian
+    echo $results;
 } else {
-  echo "Tidak ada hasil pencarian.";
+    // Jika form belum disubmit, tampilkan pesan default atau form
+    echo "Silakan gunakan formulir pencarian untuk mencari lowongan kerja.";
 }
 ?>
